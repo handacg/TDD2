@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">42</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <%= link_to 'Home', root_path, class: "nav-item nav-link"  %>
+      <%= link_to 'Club', club_path, class: "nav-item nav-link"  %>
+      <% if logged_in? %>
+        <%= link_to 'Show', user_path(session[:user_id]), class: "nav-item nav-link"  %>
+      <% end %>
+    </div>
+  </div>
+  <ul class="nav navbar-nav navbar-right">
+    <% unless logged_in? %>
+    <li>
+      <%= link_to 'Sign up', signup_path, class: "nav-item nav-link"  %>
+    <li>
+      <%= link_to 'Login', login_path, class: "nav-item nav-link" %>
+    <% else %>
+      <%= link_to 'Logout', logout_path, class: "nav-item nav-link"  %>
+    <% end %>
+    </li>
+  </ul>
+</nav>

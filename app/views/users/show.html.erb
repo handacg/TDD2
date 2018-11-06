@@ -1,0 +1,13 @@
+<p>
+<%= @user.first_name %>
+</p>
+<p>
+<%= @user.last_name %>
+</p>
+</br>
+<p>
+<%= @user.email %>
+</p>
+<% if session[:user_id] == @user.id %>
+<%= link_to 'Edit profile', edit_user_path(@user), class: "btn btn-primary"%>
+<% end %>

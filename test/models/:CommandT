@@ -1,0 +1,21 @@
+require 'test_helper'
+
+class UserTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
+  def setup
+    @user = users(:valid)
+  end
+  test 'valid user' do
+    assert @user.valid?
+  end
+
+  test 'invalid without first_name' do
+    refute @user.valid?, 'user is valid without a first_name'
+    assert_not_nil @user.errors[:first_name], 'no validation error for first_name present'
+  end
+
+  test 'invalid without email' do
+  end
+end
